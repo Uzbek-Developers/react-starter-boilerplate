@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../scss/app.scss";
+import "../users.html";
 
 export default class App extends Component {
     render() {
