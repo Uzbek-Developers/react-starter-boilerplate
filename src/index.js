@@ -1,6 +1,11 @@
 import React from "react";
 import ReactDom from "react-dom";
-import App from "./components/App"
+import App from "./App"
+import { HashRouter as Router, Link } from 'react-router-dom'
 
-ReactDom.render(<App/>, document.getElementById("app"))
-$('body').append('<div>red</div>');
+
+ReactDom.render(
+    <Router>
+        <App />
+    </Router>
+    , document.getElementById("app"))
