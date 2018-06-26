@@ -3,13 +3,22 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const extractPlugin = new ExtractTextPlugin("style.css");
 module.exports = {
-    entry: "./src/index.js",
+    entry: {
+        client: "./src/index.js"
+    },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "index_bundle.js"
+        filename: "[name].js"
+    },
+    optimization: {
+        splitChunks: {
+            // include all types of chunks
+            chunks: 'all'
+        }
     },
     module: {
         rules: [
@@ -61,6 +70,7 @@ module.exports = {
             jQuery: 'jquery'
         }),
         new CleanWebpackPlugin(['dist']),
+        new BundleAnalyzerPlugin(),
         extractPlugin,
         new HtmlWebpackPlugin({
             filename: 'index.html',
