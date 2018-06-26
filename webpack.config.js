@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
 const extractPlugin = new ExtractTextPlugin("style.css");
+
 module.exports = {
     entry: {
         client: "./src/index.js"
@@ -15,9 +15,16 @@ module.exports = {
         filename: "[name].js"
     },
     optimization: {
+        runtimeChunk: 'single',
         splitChunks: {
-            // include all types of chunks
-            chunks: 'all'
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    enforce: true,
+                    chunks: 'all'
+                }
+            }
         }
     },
     module: {

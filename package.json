@@ -8,6 +8,7 @@
     "build": "webpack --mode production",
     "analyze": "webpack-bundle-analyzer dist/stats.json"
   },
+  "sideEffects": false,
   "keywords": [],
   "author": "",
   "license": "ISC",
