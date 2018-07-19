@@ -15,7 +15,6 @@ module.exports = {
         filename: "[name].js"
     },
     optimization: {
-        runtimeChunk: 'single',
         splitChunks: {
             cacheGroups: {
                 vendors: {
@@ -25,7 +24,7 @@ module.exports = {
                     chunks: 'all'
                 }
             }
-        }
+        },
     },
     module: {
         rules: [
