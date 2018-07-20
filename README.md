@@ -1,1 +1,3 @@
-# react-starter-boilerplate
+# React app for starting
+
+Open for optimization. :)
