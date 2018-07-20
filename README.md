@@ -1,3 +1,3 @@
 # React app for starting
 
-Open for optimization. :)
+Open for contribute. :)
